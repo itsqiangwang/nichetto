@@ -1,0 +1,115 @@
+html, body, figure, h1, h2, h3 {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: N27;
+    src: url(N27-Regular.otf);
+}
+
+* {
+    box-sizing: border-box;
+    font-weight: normal;
+    font-family: N27;
+    font-size: 32pt;
+    word-break: break-all;
+    text-transform: uppercase;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F8F3E6;
+    perspective: 1000px; /* Adds depth for 3D effect */
+    overflow: hidden;
+}
+
+.card {
+    position: relative;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    transform-style: preserve-3d; /* Preserve 3D for child elements */
+    animation: spin 10s linear infinite; /* Continuous spin */
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hide the reverse side */
+    padding: 20px;
+}
+
+.front {
+    background-color: #651d32;
+    color: #FA4616;
+    transform: rotateY(0deg); /* Front facing */
+}
+
+.front a {
+    color: #FA4616;
+}
+
+.back {
+    background-color: #FA4616;
+    color: #651d32;
+    transform: rotateY(180deg); /* Back facing */
+}
+
+.back a {
+    color: #651d32;
+}
+
+.front-text {
+    display: flex;
+}
+
+.front-text > * {
+    width: 50%;
+}
+
+.back-text {
+    margin-left: 50%;
+}
+
+img {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+}
+
+a {
+    display: block;
+}
+
+/* Keyframes for spinning animation */
+@keyframes spin {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+/*
+mobile view
+*/
+@media only screen and (max-width: 480px) {
+    *{
+        font-size: 10pt;
+    }
+}
+
+/*
+tablet view
+*/
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    *{
+        font-size: 16pt;
+    }
+}
