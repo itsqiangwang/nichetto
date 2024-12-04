@@ -12,102 +12,74 @@ html, body, figure, h1, h2, h3 {
     box-sizing: border-box;
     font-weight: normal;
     font-family: N27;
-    font-size: 32pt;
-    word-break: break-all;
+    word-break: break-all; 
     text-transform: uppercase;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #F8F3E6;
-    perspective: 1000px; /* Adds depth for 3D effect */
-    overflow: hidden;
-}
-
-.card {
-    position: relative;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    transform-style: preserve-3d; /* Preserve 3D for child elements */
-    animation: spin 10s linear infinite; /* Continuous spin */
-}
-
-.front, .back {
-    position: absolute;
+.front,
+.back {
     width: 100%;
-    height: 100%;
-    backface-visibility: hidden; /* Hide the reverse side */
-    padding: 40px;
+    height: 50vh;
+    position: relative;
+    background-color: #FA4616;
 }
 
 .front {
-    background-color: #651d32;
-    color: #FA4616;
-    transform: rotateY(0deg); /* Front facing */
-}
-
-.front a {
-    color: #FA4616;
+    padding: 70px;
 }
 
 .back {
-    background-color: #FA4616;
-    color: #651d32;
-    transform: rotateY(180deg); /* Back facing */
-}
-
-.back a {
-    color: #651d32;
-}
-
-.front-text {
     display: flex;
+    flex-wrap: wrap;
 }
 
-.front-text > * {
+.back h1{
     width: 50%;
-}
-
-.back-text {
-    margin-left: 50%;
-}
-
-img {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
 }
 
-.front img{
-    bottom: 40px;
+.back a{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    z-index: 2;
 }
 
 .back img{
-    bottom: 40px;
-    left: 0;
-}
-
-a {
+    max-width: 100%;
+    max-height: 100%;
     display: block;
 }
 
-/* Keyframes for spinning animation */
-@keyframes spin {
-    from {
-        transform: rotateY(0deg);
-    }
-    to {
-        transform: rotateY(360deg);
-    }
+.back a:nth-of-type(1),
+.back a:nth-of-type(2){
+    align-items: start;
+}
+
+.back a:nth-of-type(3),
+.back a:nth-of-type(4){
+    align-items: end;
+}
+
+.back a:nth-of-type(2),
+.back a:nth-of-type(4){
+    justify-content: end;
 }
 
 /*
 mobile view
 */
 @media only screen and (max-width: 480px) {
-    *{
-        font-size: 8pt;
+    .front{
+        padding: 50px;
     }
 }
 
@@ -115,7 +87,7 @@ mobile view
 tablet view
 */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-    *{
-        font-size: 16pt;
+    .front{
+        padding: 60px;
     }
 }

@@ -12,74 +12,127 @@ html, body, figure, h1, h2, h3 {
     box-sizing: border-box;
     font-weight: normal;
     font-family: N27;
-    word-break: break-all; 
+    font-size: 32pt;
+    word-break: break-all;
     text-transform: uppercase;
 }
 
-.front,
-.back {
-    width: 100%;
-    height: 50vh;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    perspective: 2500px; /* Adds depth for 3D effect */
+    overflow: hidden;
+    animation: backgroundChange 10s linear infinite; /* Background color animation */
+}
+
+.card {
     position: relative;
-    background-color: #FA4616;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    transform-style: preserve-3d; /* Preserve 3D for child elements */
+    animation: spin 10s linear infinite; /* Continuous spin */
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hide the reverse side */
+    display: flex;
 }
 
 .front {
-    padding: 70px;
+    background-color: #651d32;
+    color: #FA4616;
 }
 
-.back {
+.front > *,
+.back > *{
+    width: 50%;
+}
+
+.front-text,
+.back-text{
     display: flex;
     flex-wrap: wrap;
+    padding: 40px;
 }
 
-.back h1{
-    width: 50%;
+.front-text > *,
+.back-text > *{
+    width: 100%;
     height: 50%;
+}
+
+.front-text h1,
+.back-text h3{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 1;
-}
-
-.back a{
-    width: 50%;
-    height: 50%;
-    display: flex;
-    z-index: 2;
-}
-
-.back img{
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-}
-
-.back a:nth-of-type(1),
-.back a:nth-of-type(2){
-    align-items: start;
-}
-
-.back a:nth-of-type(3),
-.back a:nth-of-type(4){
+    flex-wrap: wrap;
     align-items: end;
 }
 
-.back a:nth-of-type(2),
-.back a:nth-of-type(4){
+.front-image,
+.back-image{
+    display: flex;
+    align-items: start;
+    padding: 40px 0;
+}
+
+.front-image{
     justify-content: end;
+}
+
+.back {
+    background-color: #FA4616;
+    color: #651d32;
+    transform: rotateY(180deg); /* Back facing */
+}
+
+.back a {
+    color: #651d32;
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+a {
+    display: block;
+}
+
+/* Spinning animation */
+@keyframes spin {
+    from {
+        transform: rotateY(0deg);
+    }
+    
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+/* Background color snapping animation */
+@keyframes backgroundChange {
+    0%, 24.99% {
+        background-color: #FA4616; /* Front color */
+    }
+    25%, 74.99% {
+        background-color: #651d32; /* Back color */
+    }
+    75%, 100% {
+        background-color: #FA4616; /* Front color */
+    }
 }
 
 /*
 mobile view
 */
 @media only screen and (max-width: 480px) {
-    .front{
-        padding: 50px;
+    *{
+        font-size: 8pt;
     }
 }
 
@@ -87,7 +140,7 @@ mobile view
 tablet view
 */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
-    .front{
-        padding: 60px;
+    *{
+        font-size: 16pt;
     }
 }
