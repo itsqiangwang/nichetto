@@ -116,14 +116,23 @@ a {
 
 /* Background color snapping animation */
 @keyframes backgroundChange {
-    0%, 24.99% {
-        background-color: #FA4616; /* Front color */
+    /* 0%, 24.99% {
+        background-color: #FA4616;
     }
     25%, 74.99% {
-        background-color: #651d32; /* Back color */
+        background-color: #651d32; 
     }
     75%, 100% {
-        background-color: #FA4616; /* Front color */
+        background-color: #FA4616; 
+    } */
+    0%, 23% {
+        background-color: #FA4616;
+    }
+    25%, 73% {
+        background-color: #651d32; 
+    }
+    75%, 100% {
+        background-color: #FA4616; 
     }
 }
 
