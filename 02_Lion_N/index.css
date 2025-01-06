@@ -1,0 +1,100 @@
+html, body, figure, h1, h2, h3 {
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    background-color: #651d32;
+}
+
+@font-face {
+    font-family: N27;
+    src: url(N27-Regular.otf);
+}
+
+* {
+    box-sizing: border-box;
+    font-weight: normal;
+    font-family: N27;
+    font-size: 13pt;
+    word-break: break-all;
+    text-transform: uppercase;
+    color: #FA4616;
+}
+
+.card{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 100vh;
+    padding: 40px;
+}
+
+.card > *{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info{
+    width: 100%;
+    height: 20%;
+}
+/* 
+.info > *{
+    width: 50%;
+    height: 100%;
+} */
+
+.info > *:nth-of-type(1){
+    width: 80%;
+    height: 100%;
+}
+
+.info > *:nth-of-type(2){
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.animation{
+    width: 100%;
+    height: 60%;
+    position: relative;
+}
+
+.animation > *{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.wordmark{
+    width: 100%;
+    height: 20%;
+}
+
+.wordmark > *{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+video{
+    opacity: 0.9;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+img{
+    max-width: 100%;
+    max-height: 45%;
+}
+
+a {
+    display: block;
+}
