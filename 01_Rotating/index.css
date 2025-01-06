@@ -34,7 +34,8 @@ body {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     transform-style: preserve-3d; /* Preserve 3D for child elements */
-    transition: transform 1s ease; /* Smooth flipping animation */
+    transition: transform 0.8s ease-in-out; /* Smooth flipping animation */
+    will-change: transform;
 }
 
 .front, 
@@ -46,6 +47,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
+    transform-style: preserve-3d;
 }
 
 .front {
@@ -100,6 +102,9 @@ video{
     opacity: 0.9;
     max-width: 100%;
     max-height: 100%;
+    backface-visibility: hidden; /* Prevent rendering the back side */
+    transform: translateZ(0); /* Trigger hardware acceleration */
+    will-change: transform, opacity; /* Hint the browser about transformation changes */
 }
 
 a{
@@ -110,6 +115,8 @@ a{
     background-color: #FA4616;
     color: #651d32;
     transform: rotateY(180deg); /* Back facing */
+    backface-visibility: hidden; /* Prevent rendering issues */
+    overflow: hidden; /* Avoid content overflow glitches */
 }
 
 .back .QR {

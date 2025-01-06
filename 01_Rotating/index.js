@@ -1,19 +1,30 @@
-// Select the body and card elements
-const body = document.body;
 const card = document.querySelector('.card');
+const video = document.querySelector('.front-video');
+let isFlipped = false;
 
-// Function to toggle the rotation state
-function toggleCardFlip() {
-    card.classList.toggle('flipped'); // Toggle the flipped state on the card
-
-    // Update the background color based on the card's state
-    if (card.classList.contains('flipped')) {
-        body.classList.add('back-view'); // Back view
-    } else {
-        body.classList.remove('back-view'); // Front view
+// Ensure autoplay compatibility for mobile
+document.addEventListener('DOMContentLoaded', () => {
+    if (video.paused) {
+        video.muted = true; // Ensure muted is set
+        video.playsInline = true;
+        video.autoplay = true;
+        video.loop = true;
+        video.play().catch((error) => {
+            console.error("Autoplay failed:", error);
+        });
     }
-}
+});
 
-// Add click and touch event listeners to toggle the flip
-body.addEventListener('click', toggleCardFlip);
-body.addEventListener('touchstart', toggleCardFlip);
+// Toggle card rotation and handle video
+card.addEventListener('click', () => {
+    isFlipped = !isFlipped;
+    card.classList.toggle('flipped');
+
+    if (isFlipped) {
+        video.pause(); // Pause when rotating to the back
+    } else {
+        video.play().catch((error) => {
+            console.error("Video play error:", error);
+        });
+    }
+});
