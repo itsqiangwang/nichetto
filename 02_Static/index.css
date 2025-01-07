@@ -111,10 +111,10 @@ a {
   }
 
   .card{
-      padding: 50px 25px;
+      padding: 25px;
   }
   
   .info{
-      padding-top: 40px;
+      /* padding-top: 40px; */
   }
 }  
