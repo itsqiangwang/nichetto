@@ -53,7 +53,7 @@ body {
 .front {
     background-color: #651d32;
     display: flex;
-    padding: 40px;
+    padding: 25px;
 }
 
 .front > * {
@@ -148,5 +148,9 @@ body.back-view {
     .wordmark > *,
     .animation > *{
         align-items: center;
+    }
+
+    .front{
+        padding: 50px 25px;
     }
 }  
