@@ -141,3 +141,9 @@ body.back-view {
     background-color: #651d32; /* Set background color for back view */
 }
 
+@media only screen and (max-width: 600px) {
+    * {
+      font-size: 3.5vw;
+    }
+  }
+  
