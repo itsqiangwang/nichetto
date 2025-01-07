@@ -114,4 +114,8 @@ a {
   .animation > *{
       align-items: center;
   }
+
+  .card{
+      padding: 50px 25px;
+  }
 }  
