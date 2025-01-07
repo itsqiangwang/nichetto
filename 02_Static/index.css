@@ -10,6 +10,7 @@ h3 {
 
 html {
   background-color: #651d32;
+  overflow: hidden;
 }
 
 @font-face {
@@ -108,4 +109,9 @@ a {
   * {
     font-size: 3.5vw;
   }
-}
+
+  .wordmark > *,
+  .animation > *{
+      align-items: start;
+  }
+}  
