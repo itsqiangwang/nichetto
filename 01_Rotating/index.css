@@ -147,10 +147,14 @@ body.back-view {
 
     .wordmark > *,
     .animation > *{
-        align-items: center;
+        align-items: start;
     }
 
     .front{
         padding: 50px 25px;
+    }
+
+    .info{
+        padding-top: 40px;
     }
 }  
