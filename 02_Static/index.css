@@ -33,7 +33,7 @@ html {
   flex-wrap: wrap;
   width: 100vw;
   height: 100vh;
-  padding: 40px;
+  padding: 25px;
 }
 
 .card > * {
